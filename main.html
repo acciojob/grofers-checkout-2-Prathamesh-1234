@@ -8,6 +8,44 @@
 
 <body>
 	<!-- the entire body must be written by student -->
+	<table id="grocery-table" border="1">
+    <tr>
+        <td>Item 1</td>
+        <td data-ns-test="prices">10</td>
+    </tr>
+    <tr>
+        <td>Item 2</td>
+        <td data-ns-test="prices">20</td>
+    </tr>
+    <tr>
+        <td>Item 3</td>
+        <td data-ns-test="prices">30</td>
+    </tr>
+</table>
+
+<script>
+    // Step 1: Select all price elements
+    const prices = document.querySelectorAll('[data-ns-test="prices"]');
+
+    let total = 0;
+
+    // Step 2: Calculate sum
+    prices.forEach(price => {
+        total += Number(price.textContent);
+    });
+
+    // Step 3: Create new row and cell
+    const table = document.getElementById('grocery-table');
+    const newRow = document.createElement('tr');
+    const newCell = document.createElement('td');
+
+    // Step 4: Set attributes and value
+    newCell.setAttribute('data-ns-test', 'grandTotal');
+    newCell.textContent = total;
+
+    // Step 5: Append cell to row and row to table
+    newRow.appendChild(newCell);
+    table.appendChild(newRow);
     <script type="text/javascript" src="./script.js">
 </script>
 
